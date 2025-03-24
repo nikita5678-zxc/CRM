@@ -8,7 +8,6 @@ import (
 	"net/http"
 )
 
-var users map[int]string
 var origin = "phoneCall"
 
 type Ticket struct {
@@ -20,7 +19,6 @@ type Ticket struct {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/product", ProductHandler).Methods("POST")
-	users = make(map[int]string)
 	err := http.ListenAndServe(":8123", r)
 	if err != nil {
 		panic(err)
@@ -37,7 +35,6 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 
 func CreateTicket(origin string, client_id string) {
 	id := rand.Intn(9000000)
-	users[id] = client_id
 	GetTicket(id, client_id)
 }
 
