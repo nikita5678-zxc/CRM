@@ -35,10 +35,10 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 
 func CreateTicket(origin string, client_id string) {
 	id := rand.Intn(9000000)
-	GetTicket(id, client_id)
+	GetTicket(id, client_id, origin)
 }
 
-func GetTicket(id int, client_id string) {
+func GetTicket(id int, client_id string, origin string) {
 	ticket := Ticket{
 		Id:       fmt.Sprintf("%d", id),
 		Origin:   origin,
