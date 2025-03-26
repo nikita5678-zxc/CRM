@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/mux"
 	"math/rand"
 	"net/http"
+	"time"
 )
 
 var origin = "phoneCall"
@@ -34,6 +35,7 @@ func ProductHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateTicket(origin string, client_id string) {
+	rand.Seed(time.Now().UnixNano())
 	id := rand.Intn(9000000)
 	GetTicket(id, client_id, origin)
 }
