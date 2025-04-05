@@ -80,7 +80,7 @@ func CreateTicketHandler(w http.ResponseWriter, r *http.Request, conn *pgx.Conn)
 	if err1 != nil {
 		http.Error(w, err1.Error(), http.StatusInternalServerError)
 	}
-	fmt.Printf("ticket created: %s\n", ticketId)
+	fmt.Printf("Ticket created. Ticket id - %s\n", ticketId)
 }
 
 func InsertInto(conn *pgx.Conn, ticket Ticket) (string, error) {
